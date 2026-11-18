@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Se busca empresa: una idea para TRIVU, por Paula Moral.">
+<title>Se busca empresa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Rubik:wght@400;500;600&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* Layout: el universo visual de TRIVU (azul noche, titulares en mayúsculas muy gruesos, acentos eléctricos) con los carteles de calle en papel blanco como contraste */
+:root{
+  --night:#000066; --royal:#3333CC; --violet:#3724BC; --ink:#FFFEFA; --soft:#C9CBF5;
+  --cyan:#33FFFF; --magenta:#FF66FF; --lime:#99FF66;
+  --paper:#FFFFFF; --paper-ink:#14143A; --paper-muted:#5A5C80; --rule:rgba(255,255,255,.18);
+  --display:"Montserrat", "Arial Black", Arial, sans-serif;
+  --body:"Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --type:"Courier Prime", "Courier New", ui-monospace, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+img{max-width:100%}
+body{background:var(--night);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.in{max-width:1040px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.read{max-width:720px}
+a{color:inherit;text-decoration-color:var(--cyan);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* Hero */
+.hero{background:radial-gradient(120% 90% at 85% 0%, var(--violet) 0%, rgba(55,36,188,0) 60%), radial-gradient(90% 80% at 0% 100%, var(--royal) 0%, rgba(51,51,204,0) 55%), var(--night)}
+.hero .in{padding-block:64px 56px}
+.kicker{font-family:var(--body);font-weight:500;font-size:clamp(11px,1.5vw,14px);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:0 0 14px;white-space:nowrap}
+@media (max-width:640px){.kicker{white-space:normal}}
+h1{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(52px,12vw,120px);line-height:.92;letter-spacing:-.01em;margin:0}
+h1 span{color:var(--cyan)}
+.sub{font-size:clamp(19px,2.4vw,22px);line-height:1.5;max-width:36ch;margin:24px 0 0;color:var(--ink);text-wrap:pretty}
+
+/* Sections */
+.block .in{padding-block:48px;border-top:1px solid var(--rule)}
+.block:nth-of-type(even){background:var(--royal)}
+.block:nth-of-type(even) .in{border-top-color:transparent}
+.eyebrow{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin:0 0 10px}
+h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,4.6vw,46px);line-height:1.02;margin:0 0 18px;text-wrap:balance}
+p{margin:0 0 14px;max-width:62ch}
+.big{font-size:clamp(20px,2.5vw,23px);line-height:1.45;max-width:40ch}
+
+/* Wall of ads */
+.wall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 22px;margin-top:24px}
+@media (max-width:860px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.wall{grid-template-columns:1fr}}
+.ad{background:var(--paper);color:var(--paper-ink);position:relative;padding:28px 20px 0;box-shadow:0 14px 28px -14px rgba(0,0,40,.7);min-width:0}
+.ad:nth-child(3n+1){transform:rotate(-1.2deg)}
+.ad:nth-child(3n+2){transform:rotate(.8deg)}
+.ad:nth-child(3n){transform:rotate(-.4deg)}
+.ad::before{content:"";position:absolute;top:-10px;left:50%;width:74px;height:20px;margin-left:-37px;opacity:.9;transform:rotate(-3deg);background:var(--lime)}
+.ad:nth-child(3n+2)::before{background:var(--magenta)}
+.ad:nth-child(3n)::before{background:var(--cyan)}
+.ad .se{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:24px;line-height:1;color:var(--royal);margin:0 0 10px}
+.ad .que{font-family:var(--type);font-size:17px;line-height:1.4;margin:0 0 14px}
+.ad .firma{font-family:var(--type);font-size:13px;color:var(--paper-muted);margin:0 0 16px}
+.via{font-family:var(--body);font-weight:500;font-size:11px;color:var(--paper-muted);margin:0 0 6px;text-transform:uppercase;letter-spacing:.05em}
+.tabs{display:flex;border-top:1px dashed var(--paper-muted);margin:0 -20px}
+.tabs span{flex:1;min-width:0;border-right:1px dashed var(--paper-muted);height:156px;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-block:8px}
+.tabs span:last-child{border-right:0}
+.tabs i{font-style:normal;font-family:var(--type);font-size:10px;line-height:1.25;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;color:var(--paper-muted)}
+
+/* Steps */
+.steps{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding:18px 0;border-top:1px solid var(--rule)}
+.steps li:first-child{border-top:0}
+.steps .n{font-family:var(--display);font-weight:900;font-size:44px;line-height:.9;color:var(--cyan)}
+.steps h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.01em;margin:0 0 6px}
+.steps p{margin:0;color:var(--ink)}
+.when{font-family:var(--body);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:2px}
+
+/* Two TRIVU */
+.dos{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:stretch;margin-top:10px}
+.dos > div{background:var(--night);border-radius:18px;padding:22px;min-width:0}
+.dos h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:22px;line-height:1.05;margin:0 0 8px;color:var(--cyan)}
+.dos > div:last-child h3{color:var(--magenta)}
+.dos p{font-size:16px;margin:0}
+.dos .arrow{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:36px;color:var(--lime);background:transparent;padding:0}
+@media (max-width:640px){.dos{grid-template-columns:1fr}.dos .arrow{transform:rotate(90deg)}}
+
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:6px;border-top:1px solid var(--rule)}
+.kpis div{padding:14px 16px 14px 0;border-bottom:1px solid var(--rule);min-width:0}
+.kpis div:nth-child(even){padding-left:16px;border-left:1px solid var(--rule)}
+.kpis b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:15px;color:var(--cyan);margin-bottom:2px}
+.kpis span{font-size:15px;color:var(--ink)}
+@media (max-width:560px){.kpis{grid-template-columns:1fr}.kpis div:nth-child(even){padding-left:0;border-left:0}}
+
+.care{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.care li{padding-left:28px;position:relative;max-width:62ch}
+.care li::before{content:"→";position:absolute;left:0;top:0;font-weight:700;color:var(--lime)}
+
+/* Closing ad */
+.cierre{background:var(--royal)}
+.cierre .in{padding-block:56px 80px}
+.final{background:var(--cyan);color:var(--night);padding:34px 26px 0;max-width:560px;margin:0 auto;transform:rotate(-.8deg);position:relative;box-shadow:0 18px 36px -16px rgba(0,0,0,.6)}
+.final::before{content:"";position:absolute;top:-10px;left:40px;width:80px;height:20px;background:var(--magenta);opacity:.9;transform:rotate(4deg)}
+.final .se{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(32px,5.6vw,46px);line-height:.98;margin:0 0 12px}
+.final p{font-family:var(--type);font-size:17px;line-height:1.45;margin:0 0 14px;max-width:none}
+.final .tabs{border-top-color:var(--night);margin:0 -26px}
+.final .tabs span,.final .tabs a{flex:1;min-width:0;border-right:1px dashed var(--night);height:190px;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-block:8px;text-decoration:none;color:var(--night)}
+.final .tabs a:last-child{border-right:0}
+.final .tabs a:hover i{text-decoration:underline}
+.final .tabs a:focus-visible{outline:2px solid var(--night);outline-offset:-4px}
+.final .tabs i{color:var(--night);font-size:12px}
+.cierre .eyebrow{color:var(--lime);text-align:center;margin-bottom:22px}
+
+@media (prefers-reduced-motion: reduce){.ad,.final{transform:none}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="in read">
+  <p class="kicker">Una idea para TRIVU · Propuesta de Paula Moral · Noviembre 2026</p>
+  <h1>Se busca<br><span>empresa.</span></h1>
+  <p class="sub">Las empresas llevan décadas publicando lo que buscan del talento. Esta vez, el talento publica lo que busca de las empresas.</p>
+</div></header>
+
+<section class="block"><div class="in read">
+  <p class="eyebrow">El insight</p>
+  <h2>Para enamorar, primero hay que escuchar</h2>
+  <p class="big">TRIVU habla de enamorar al talento. Pero en el mercado laboral casi siempre habla solo una parte: la empresa dice lo que busca y el talento intenta encajar.</p>
+  <p>Esta idea le da la palabra al otro lado. Los jóvenes escriben sus propias ofertas de empleo, dirigidas a las empresas, y cuentan qué necesitan de verdad para dar lo mejor de sí.</p>
+</div></section>
+
+<section class="block"><div class="in">
+  <p class="eyebrow">Así se vería</p>
+  <h2>Las ofertas, al revés</h2>
+  <div class="wall">
+    <article class="ad">
+      <p class="se">Se busca empresa</p>
+      <p class="que">que no me pida cinco años de experiencia para mi primer trabajo.</p>
+      <p class="firma">Ref. Aitana, 21 años · Sevilla</p>
+      <p class="via">Llévate una tira para responder</p><div class="tabs" aria-hidden="true"><span><i>Responde a Aitana<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Aitana<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Aitana<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Aitana<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Aitana<br>wearetrivu.com/sebusca</i></span></div>
+    </article>
+    <article class="ad">
+      <p class="se">Se busca equipo</p>
+      <p class="que">donde mi opinión cuente aunque sea la nueva.</p>
+      <p class="firma">Ref. Dani, 23 años · Bilbao</p>
+      <p class="via">Llévate una tira para responder</p><div class="tabs" aria-hidden="true"><span><i>Responde a Dani<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Dani<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Dani<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Dani<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Dani<br>wearetrivu.com/sebusca</i></span></div>
+    </article>
+    <article class="ad">
+      <p class="se">Se busca manager</p>
+      <p class="que">que me explique para qué sirve lo que hago.</p>
+      <p class="firma">Ref. Nerea, 24 años · Zaragoza</p>
+      <p class="via">Llévate una tira para responder</p><div class="tabs" aria-hidden="true"><span><i>Responde a Nerea<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Nerea<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Nerea<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Nerea<br>wearetrivu.com/sebusca</i></span><span><i>Responde a Nerea<br>wearetrivu.com/sebusca</i></span></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="block"><div class="in read">
+  <p class="eyebrow">Cómo funciona</p>
+  <h2>De un muro a un informe</h2>
+  <ol class="steps">
+    <li><span class="n">1</span><div><span class="when">Antes</span><h3>La convocatoria</h3><p>Una campaña en redes, con la agencia, que invita a los jóvenes a escribir su oferta: «¿Qué empresa estás buscando tú?». Las primeras se publican tal cual, como carteles.</p></div></li>
+    <li><span class="n">2</span><div><span class="when">Durante</span><h3>El muro, en Sondersland o en el Tour del Talento</h3><p>Un tablón de anuncios físico donde los asistentes rellenan su cartel y lo cuelgan. Cada cartel lleva unas tiras con el nombre de quien lo escribió y la web de la campaña. La empresa que quiera responder se lleva su tira, entra en la web y contesta a esa persona a través de TRIVU, que conecta a las dos partes. Algunas lo hacen en directo, en el escenario: qué pueden ofrecer y qué no. Les da protagonismo sin que suene a stand.</p></div></li>
+    <li><span class="n">3</span><div><span class="when">Después</span><h3>Contenido en redes</h3><p>Después del evento, las ofertas del muro se convierten en contenido para redes. Cada semana se publica una, en un vídeo corto o un carrusel, tal como la escribió esa persona. Cuando una empresa de la red de TRIVU decide responderla, su respuesta también se publica. Así la campaña no se acaba cuando termina el evento.</p></div></li>
+    <li><span class="n">4</span><div><span class="when">Al cierre</span><h3>El informe</h3><p>«Lo que el talento le pide a las empresas»: todo lo recogido, ordenado y analizado. Una pieza de marca para medios y, a la vez, una herramienta para el equipo que trabaja el employer branding con clientes.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="block"><div class="in read">
+  <p class="eyebrow">Por qué para TRIVU</p>
+  <h2>Une las dos TRIVU en una sola acción</h2>
+  <div class="dos">
+    <div><h3>El movimiento</h3><p>Da voz a los jóvenes, llena de contenido los eventos y suma comunidad.</p></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div><h3>La consultora</h3><p>Convierte esa voz en conocimiento útil para las empresas que quieren atraer talento.</p></div>
+  </div>
+  <p style="margin-top:18px">Además es fácil de explicar en una frase, se puede repetir en cada evento y país del ecosistema, y cada edición del informe mejora la anterior.</p>
+</div></section>
+
+<section class="block"><div class="in read">
+  <p class="eyebrow">Cómo lo mediría</p>
+  <h2>Qué miraría para saber si funciona</h2>
+  <div class="kpis">
+    <div><b>Participación</b><span>Ofertas escritas, online y en los eventos.</span></div>
+    <div><b>Conversación</b><span>Alcance, menciones y contenido creado por los propios asistentes.</span></div>
+    <div><b>Empresas</b><span>Cuántas responden, y cuántas se comprometen a cambiar algo.</span></div>
+    <div><b>Negocio</b><span>Cobertura del informe y conversaciones comerciales que abre.</span></div>
+  </div>
+</div></section>
+
+
+<section class="cierre"><div class="in">
+  <p class="eyebrow">Y una más</p>
+  <article class="final">
+    <p class="se">Se busca equipo</p>
+    <p>que quiera convertir ideas como esta en movimiento.</p>
+    <p>Ref. Paula Moral · Comms-Brand Lead</p>
+    <div class="tabs">
+      <span><i>+34 639 089 073</i></span>
+      <a href="mailto:paula.moralsanz@gmail.com"><i>paula.moralsanz@gmail.com</i></a>
+      <a href="https://www.linkedin.com/in/paula-moral-sanz" target="_blank" rel="noopener"><i>LinkedIn ↗</i></a>
+      <a href="https://paulamoral.github.io" target="_blank" rel="noopener"><i>Portfolio ↗</i></a>
+    </div>
+  </article>
+</div></section>
+</body>
+</html>
